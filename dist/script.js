@@ -1377,3 +1377,51 @@ requestAnimationFrame(loop);
 
 // Boot
 resetAll(true);
+const keys={};
+
+window.addEventListener("keydown",e=>{
+  keys[e.code]=true;
+});
+
+window.addEventListener("keyup",e=>{
+  keys[e.code]=false;
+});
+
+function hold(btn,key){
+  if(!btn)return;
+
+  btn.addEventListener("touchstart",e=>{
+    e.preventDefault();
+    keys[key]=true;
+  });
+
+  btn.addEventListener("touchend",e=>{
+    e.preventDefault();
+    keys[key]=false;
+  });
+}
+
+hold(document.getElementById("leftBtn"),"ArrowLeft");
+hold(document.getElementById("rightBtn"),"ArrowRight");
+hold(document.getElementById("jumpBtn"),"Space");
+hold(document.getElementById("shootBtn"),"KeyX");
+hold(document.getElementById("flyBtn"),"ArrowUp");
+function hold(btn, key){
+  if(!btn) return;
+
+  btn.addEventListener("touchstart", e=>{
+    e.preventDefault();
+    keys[key]=true;
+  });
+
+  btn.addEventListener("touchend", e=>{
+    e.preventDefault();
+    keys[key]=false;
+  });
+}
+
+hold(document.getElementById("leftBtn"),"ArrowLeft");
+hold(document.getElementById("rightBtn"),"ArrowRight");
+hold(document.getElementById("jumpBtn"),"Space");
+hold(document.getElementById("shootBtn"),"KeyX");
+hold(document.getElementById("flyBtn"),"ArrowUp");
